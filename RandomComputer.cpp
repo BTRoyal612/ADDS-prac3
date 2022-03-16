@@ -26,3 +26,5 @@ char RandomComputer::makeMove() {
 
     return move;
 }
+
+void RandomComputer::refresh() {}

@@ -7,6 +7,7 @@ class RandomComputer : public Player {
     public:
         RandomComputer();
         char makeMove();
+        void refresh();
 };
 
 #endif
