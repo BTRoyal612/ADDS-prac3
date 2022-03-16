@@ -1,13 +1,14 @@
 #include "Tournament.h"
 #include "Player.h"
 #include "Referee.h"
+#include <iostream>
 
 Player* Tournament:: run(std::array<Player *, 8>  competitors) {
     Referee* referee = new Referee();
 
     // Quarter final
+    int index1 = 0, index2 = 1;
     for (int r = 0; r < 4; r++) {
-        int index1 = 0, index2 = 1;
         char quarter;
 
         for (int m = 0; m < 5; m++) {
@@ -15,13 +16,14 @@ Player* Tournament:: run(std::array<Player *, 8>  competitors) {
             if (quarter != 'T') break;
         }
         if (quarter == 'L') competitors[index1] = competitors[index2];
+        // std::cout << r << " " << index1 << " " << index2 << " " << quarter << std::endl;
 
-        index1+=2; index2+=2;
+        index1 += 2; index2+=2;
     }
     
     // Semi final
+    index1 = 0, index2 = 2;
     for (int r = 0; r < 2; r++) {
-        int index1 = 0, index2 = 2;
         char semi;
 
         competitors[index1]->refresh();
@@ -32,6 +34,7 @@ Player* Tournament:: run(std::array<Player *, 8>  competitors) {
             if (semi != 'T') break;
         }
         if (semi == 'L') competitors[index1] = competitors[index2];
+        // std::cout << semi << std::endl;
 
         index1+=2; index2+=2;
     }
@@ -46,6 +49,7 @@ Player* Tournament:: run(std::array<Player *, 8>  competitors) {
         if (final != 'T') break;
     }
     if (final == 'L') competitors[0] = competitors[4];
+    // std::cout << final << std::endl;
 
     return competitors[0];
 }

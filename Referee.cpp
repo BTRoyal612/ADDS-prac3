@@ -7,24 +7,24 @@ Referee::Referee() {}
 // Get game result
 char Referee::refGame(Player* player1, Player* player2) {
     // Get move from player
-    char pmove = player1->makeMove();
-    char cmove = player2->makeMove();
+    char move1 = player1->makeMove();
+    char move2 = player2->makeMove();
 
     // Compare
-    if (pmove == cmove) return 'T';
+    if (move1 == move2) return 'T';
 
-    switch (pmove)
+    switch (move1)
     {
     case 'R':
-        if (cmove == 'S') return 'W';
+        if (move2 == 'S') return 'W';
         break;
 
     case 'P':
-        if (cmove == 'R') return 'W';
+        if (move2 == 'R') return 'W';
         break;
 
     case 'S':
-        if (cmove == 'P') return 'W';
+        if (move2 == 'P') return 'W';
         break;
     
     default:
