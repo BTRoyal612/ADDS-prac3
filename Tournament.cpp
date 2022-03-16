@@ -16,7 +16,7 @@ Player* Tournament:: run(std::array<Player *, 8>  competitors) {
         }
         if (quarter == 'L') competitors[index1] = competitors[index2];
 
-        index1++; index2++;
+        index1+=2; index2+=2;
     }
     
     // Semi final
